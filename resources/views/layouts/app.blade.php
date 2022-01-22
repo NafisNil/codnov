@@ -65,11 +65,20 @@ scratch. This page gets rid of all links and provides the needed markup only.
   window.addEventListener('show-form', event => {
       $('#form').modal('show');
   })
+
+  window.addEventListener('show-delete-modal', event => {
+      $('#confirmationModal').modal('show');
+  })
   </script>
 
 <script>
   window.addEventListener('hide-form', event => {
       $('#form').modal('hide');
+  })
+
+  window.addEventListener('hide-delete-modal', event => {
+      $('#confirmationModal').modal('hide');
+      toastr.success(event.detail.message, 'Success!')
   })
   </script>
   <script>
@@ -94,7 +103,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
     window.addEventListener('hide-form', event => {
       $('#form').modal('hide');
       toastr.success(event.detail.message, 'Success!')
-  })
+  });
+
+
   </script>
 </body>
 </html>

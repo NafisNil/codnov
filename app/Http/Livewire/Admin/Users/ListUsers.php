@@ -11,10 +11,12 @@ class ListUsers extends Component
     public $state = [];
     public $user; 
     public $showEditModel = false;
+    public $userIdBeignRemove;
     public function addNew()
     {
         # code...
        // dd('here');
+       $this->state = [];
         $this->dispatchBrowserEvent('show-form');
     }
     public function render()
@@ -68,5 +70,21 @@ class ListUsers extends Component
     
     $this->dispatchBrowserEvent('hide-form',['message' => 'User updated successfully!']);
    
+    }
+
+    public function confirmUserRemoval($id)
+    {
+        # code...
+        $this->userIdBeignRemove = $id;
+        $this->dispatchBrowserEvent('show-delete-modal');
+    }
+
+    public function deleteUser()
+    {
+        # code...
+      //  dd($this->userIdBeignRemove);
+        $user = User::find($this->userIdBeignRemove);
+        $user->delete();
+        $this->dispatchBrowserEvent('hide-delete-modal',['message' => 'User deleted successfully!']);
     }
 }

@@ -56,7 +56,7 @@
                                 <a href="" class="text-info" wire:click.prevent = "edit({{$item}})">
                                     <i class="fa fa-edit"></i>
                                 </a>
-                                <a href="" class="text-danger">
+                                <a href="" class="text-danger" wire:click.prevent = "confirmUserRemoval({{$item->id}})">
                                     <i class="fa fa-trash"></i>
                                 </a>
                             </td>
@@ -142,12 +142,31 @@
            
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <button type="submit" class="btn btn-primary">Save changes</button>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal"><i class="far fa-window-close"></i> Close</button>
+          <button type="submit" class="btn btn-primary"><i class="far fa-check-circle"></i> Save changes</button>
         </div>
       
       </div>
     </form>
     </div>
   </div>
+
+  <!-- conformation modal-->
+  <div class="modal fade" id="confirmationModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" wire:ignore.self>
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="text-warning"> Delete </h5>
+          </div>
+          <div class="modal-body">
+            <h4 style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif"> Are you sure want to delete?</h4>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-outline-secondary" data-dismiss="modal"><i class="far fa-window-close"></i> Close</button>
+            <button type="button" wire:click.prevent="deleteUser" class="btn btn-outline-danger"><i class="fas fa-minus-circle"></i> Delete</button>
+          </div>
+        </div>
+    </div>
+  </div>
+  <!-- end modal -->
 </div>
