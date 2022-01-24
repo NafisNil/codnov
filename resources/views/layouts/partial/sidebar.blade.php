@@ -53,6 +53,16 @@
                   </p>
                 </a>
               </li>
+
+              <li class="nav-item">
+                <a href="{{route('admin.users')}}" class="nav-link {{request()->is('admin/user')?'active':''}}" >
+                  <i class="nav-icon fas fa-calendar"></i>
+                  <p>
+                    Appointment
+                  
+                  </p>
+                </a>
+              </li>
           <li class="nav-item menu-open">
             <a href="#" class="nav-link ">
               <i class="nav-icon fas fa-tachometer-alt"></i>
