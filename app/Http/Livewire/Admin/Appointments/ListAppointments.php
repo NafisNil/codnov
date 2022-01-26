@@ -2,7 +2,7 @@
 
 namespace App\Http\Livewire\Admin\Appointments;
 
-use App\Http\Livewire\Admin\Component;
+use App\Http\Livewire\Admin\AdminComponent;
 use Livewire\WithPagination;
 class ListAppointments extends AdminComponent
 {
