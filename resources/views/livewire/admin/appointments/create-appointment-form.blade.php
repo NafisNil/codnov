@@ -27,11 +27,23 @@
                             </div>
                             <div class="card-body">
                                 <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label for="note">Note:</label>
+                                            <textarea wire:model.defer="state.note" class="form-control"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="client">Client:</label>
                                             <select class="form-control" wire:model.defer="state.client_id">
-                                                <option value="">Select Client</option>
+                                                @foreach ($clients as $item)
+                                                <option value="{{$item->id}}">{{$item->name}}</option>
+                                                @endforeach
+                                                
                                             </select>
                                         </div>
                                     </div>
@@ -40,8 +52,8 @@
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label>Date:</label>
-                                            <div class="input-group date" id="appointmentDate" data-target-input="nearest">
-                                                <input wire:model.lazy="state.date" type="text" class="form-control datetimepicker-input" data-target="#appointmentDate">
+                                            <div class="input-group date" wire.ignore id="appointmentDate" data-target-input="nearest" data-appointmentdate="@this">
+                                                <input  type="text" class="form-control datetimepicker-input" data-target="#appointmentDate" id="appointmentDateInput">
                                                 <div class="input-group-append" data-target="#appointmentDate" data-toggle="datetimepicker">
                                                     <div class="input-group-text"><i class="fa fa-calendar"></i></div>
                                                 </div>
@@ -51,25 +63,18 @@
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label>Appointment Time:</label>
-                                            <div class="input-group date" id="appointmentTime" data-target-input="nearest">
-                                                <input type="text" class="form-control datetimepicker-input" data-target="#appointmentTime">
+                                            <div class="input-group date" wire.ignore id="appointmentTime" data-target-input="nearest" data-appointmenttime="@this">
+                                                <input type="text" class="form-control datetimepicker-input" data-target="#appointmentTime" id="appointmentTimeInput">
                                                 <div class="input-group-append" data-target="#appointmentTime" data-toggle="datetimepicker">
                                                     <div class="input-group-text">
-                                                        <i class="far fa-calendar-alt"></i>
+                                                        <i class="far fa-clock"></i>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="row">
-                                    <div class="col-md-12">
-                                        <div class="form-group">
-                                            <label for="note">Note:</label>
-                                            <textarea class="form-control"></textarea>
-                                        </div>
-                                    </div>
-                                </div>
+
                             </div>
                             <div class="card-footer">
                                 <button type="button" class="btn btn-secondary"><i class="fa fa-times mr-1"></i> Cancel</button>

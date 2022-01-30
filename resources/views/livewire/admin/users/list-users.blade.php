@@ -126,6 +126,9 @@
                    
               @enderror
             </div>
+<!-- hello-->
+
+          <!-- hello-->
             <div class="form-group">
               <label for="password">Password</label>
               <input type="password" wire:model.defer="state.password" class="form-control  @error('password') is-invalid   @enderror" id="password" placeholder="Password">

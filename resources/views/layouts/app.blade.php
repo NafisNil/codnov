@@ -119,6 +119,22 @@ scratch. This page gets rid of all links and provides the needed markup only.
       $('#appointmentDate').datetimepicker({
                     format: 'L'
                 });
+                $('#appointmentTime').datetimepicker({
+                    format: 'LT'
+                });
+                $('#appointmentDate').on("change.datetimepicker",function(e){
+                  //alert('here');
+                    let date = $(this).data('appointmentdate');
+                   // console.log(date);
+                    eval(date).set('state.date', $('#appointmentDateInput').val());
+                });
+                $('#appointmentTime').on("change.datetimepicker",function(e){
+                  //alert('here');
+                    let time = $(this).data('appointmenttime');
+                   // console.log(date);
+                    eval(time).set('state.time', $('#appointmentTimeInput').val());
+                });
+
   });
 </script>
 </body>

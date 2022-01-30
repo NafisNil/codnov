@@ -32,6 +32,7 @@ class ListUsers extends Component
     public function createUser()
     {
         # code...
+       // dd($this->state);
         $validateData = Validator::make($this->state, [
             'name' => 'required',
             'email' => 'required|email|unique:users',
