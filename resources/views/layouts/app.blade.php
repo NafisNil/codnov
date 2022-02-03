@@ -137,5 +137,23 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
   });
 </script>
+<script src="https://cdn.ckeditor.com/ckeditor5/32.0.0/classic/ckeditor.js"></script>
+<script>
+  ClassicEditor
+          .create( document.querySelector( '#note' ) )
+          .then( editor => {
+                 /* editor.model.document.on('change:data', ()=>{
+                    let note = $('#note').data('note');
+                    eval(note).set('state.note', editor.getData()); 
+                  })*/
+                  document.querySelector('#submit').addEventListener('click', ()=>{
+                    let note = $('#note').data('note');
+                    eval(note).set('state.note', editor.getData()); 
+                  });
+          } )
+          .catch( error => {
+                  console.error( error );
+          } );
+</script>
 </body>
 </html>

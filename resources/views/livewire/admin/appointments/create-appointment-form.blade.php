@@ -28,9 +28,9 @@
                             <div class="card-body">
                                 <div class="row">
                                     <div class="col-md-12">
-                                        <div class="form-group">
+                                        <div class="form-group" wire:ignore>
                                             <label for="note">Note:</label>
-                                            <textarea wire:model.defer="state.note" class="form-control"></textarea>
+                                            <textarea id="note" data-note="@this" wire:model.defer="state.note" class="form-control"></textarea>
                                         </div>
                                     </div>
                                 </div>
@@ -52,7 +52,7 @@
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label>Date:</label>
-                                            <div class="input-group date" wire.ignore id="appointmentDate" data-target-input="nearest" data-appointmentdate="@this">
+                                            <div class="input-group date" wire:ignore id="appointmentDate" data-target-input="nearest" data-appointmentdate="@this">
                                                 <input  type="text" class="form-control datetimepicker-input" data-target="#appointmentDate" id="appointmentDateInput">
                                                 <div class="input-group-append" data-target="#appointmentDate" data-toggle="datetimepicker">
                                                     <div class="input-group-text"><i class="fa fa-calendar"></i></div>
@@ -63,7 +63,7 @@
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label>Appointment Time:</label>
-                                            <div class="input-group date" wire.ignore id="appointmentTime" data-target-input="nearest" data-appointmenttime="@this">
+                                            <div class="input-group date" wire:ignore id="appointmentTime" data-target-input="nearest" data-appointmenttime="@this">
                                                 <input type="text" class="form-control datetimepicker-input" data-target="#appointmentTime" id="appointmentTimeInput">
                                                 <div class="input-group-append" data-target="#appointmentTime" data-toggle="datetimepicker">
                                                     <div class="input-group-text">
@@ -78,7 +78,7 @@
                             </div>
                             <div class="card-footer">
                                 <button type="button" class="btn btn-secondary"><i class="fa fa-times mr-1"></i> Cancel</button>
-                                <button type="submit" class="btn btn-primary"><i class="fa fa-save mr-1"></i> Save</button>
+                                <button type="submit" id="submit" class="btn btn-primary"><i class="fa fa-save mr-1"></i> Save</button>
                             </div>
                         </div>
                     </form>
