@@ -114,46 +114,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
   </script>
 
-<script type="text/javascript">
-  $(function () {
-      $('#appointmentDate').datetimepicker({
-                    format: 'L'
-                });
-                $('#appointmentTime').datetimepicker({
-                    format: 'LT'
-                });
-                $('#appointmentDate').on("change.datetimepicker",function(e){
-                  //alert('here');
-                    let date = $(this).data('appointmentdate');
-                   // console.log(date);
-                    eval(date).set('state.date', $('#appointmentDateInput').val());
-                });
-                $('#appointmentTime').on("change.datetimepicker",function(e){
-                  //alert('here');
-                    let time = $(this).data('appointmenttime');
-                   // console.log(date);
-                    eval(time).set('state.time', $('#appointmentTimeInput').val());
-                });
-
-  });
-</script>
-<script src="https://cdn.ckeditor.com/ckeditor5/32.0.0/classic/ckeditor.js"></script>
-<script>
-  ClassicEditor
-          .create( document.querySelector( '#note' ) )
-          .then( editor => {
-                 /* editor.model.document.on('change:data', ()=>{
-                    let note = $('#note').data('note');
-                    eval(note).set('state.note', editor.getData()); 
-                  })*/
-                  document.querySelector('#submit').addEventListener('click', ()=>{
-                    let note = $('#note').data('note');
-                    eval(note).set('state.note', editor.getData()); 
-                  });
-          } )
-          .catch( error => {
-                  console.error( error );
-          } );
-</script>
+@stack('js')
 </body>
 </html>
