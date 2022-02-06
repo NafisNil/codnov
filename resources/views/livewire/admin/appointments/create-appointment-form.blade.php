@@ -60,8 +60,10 @@
                                             </div>
                                         </div>
                                     </div>
-                                    
+                                   
                                     <div class="input-group mb-3">
+                                       
+                                        <label>Appointment Start Time:</label>
                                         <div class="input-group-prepend">
                                           <span class="input-group-text"><i class="fas fa-clock"></i></span>
                                         </div>
