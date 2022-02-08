@@ -49,37 +49,33 @@
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <label>Date:</label>
-                                            <div class="input-group date" wire:ignore id="appointmentDate" data-target-input="nearest" data-appointmentdate="@this">
-                                                <input  type="text" class="form-control datetimepicker-input" data-target="#appointmentDate" id="appointmentDateInput">
-                                                <div class="input-group-append" data-target="#appointmentDate" data-toggle="datetimepicker">
-                                                    <div class="input-group-text"><i class="fa fa-calendar"></i></div>
-                                                </div>
-                                            </div>
+                                    
+                                    <div class="input-group mb-3">
+                                       
+                                        <label>Appointment Date:</label>
+                                        <div class="input-group-prepend">
+                                          <span class="input-group-text"><i class="fas fa-calendar"></i></span>
                                         </div>
-                                    </div>
+                                        <x-datepicker wire:model="state.date" id="appointmentDate"></x-datepicker>
+                                      </div>
                                    
                                     <div class="input-group mb-3">
                                        
-                                        <label>Appointment Start Time:</label>
+                                        <label>Appointment Time:</label>
                                         <div class="input-group-prepend">
                                           <span class="input-group-text"><i class="fas fa-clock"></i></span>
                                         </div>
-                                        <x-timepicker wire:model="state.appointment_start_time"></x-timepicker>
+                                        <x-timepicker wire:model="state.time" id="appointmentTime"></x-timepicker>
                                       </div>
-                                    <div class="col-md-6">
+
+                                      <div class="col-md-6">
                                         <div class="form-group">
-                                            <label>Appointment Time:</label>
-                                            <div class="input-group date" wire:ignore id="appointmentTime" data-target-input="nearest" data-appointmenttime="@this">
-                                                <input type="text" class="form-control datetimepicker-input" data-target="#appointmentTime" id="appointmentTimeInput">
-                                                <div class="input-group-append" data-target="#appointmentTime" data-toggle="datetimepicker">
-                                                    <div class="input-group-text">
-                                                        <i class="far fa-clock"></i>
-                                                    </div>
-                                                </div>
-                                            </div>
+                                            <label for="client">Status:</label>
+                                            <select class="form-control" wire:model.defer="state.status">
+                                               
+                                                <option value="SCHEDULED">SCHEDULED</option>
+                                                <option value="CLOSED">CLOSED</option>
+                                            </select>
                                         </div>
                                     </div>
                                 </div>
@@ -96,29 +92,7 @@
         </div>
     </div>
     @push('js')
-    <script type="text/javascript">
-        $(function () {
-            $('#appointmentDate').datetimepicker({
-                          format: 'L'
-                      });
-                      $('#appointmentTime').datetimepicker({
-                          format: 'LT'
-                      });
-                      $('#appointmentDate').on("change.datetimepicker",function(e){
-                        //alert('here');
-                          let date = $(this).data('appointmentdate');
-                         // console.log(date);
-                          eval(date).set('state.date', $('#appointmentDateInput').val());
-                      });
-                      $('#appointmentTime').on("change.datetimepicker",function(e){
-                        //alert('here');
-                          let time = $(this).data('appointmenttime');
-                         // console.log(date);
-                          eval(time).set('state.time', $('#appointmentTimeInput').val());
-                      });
-      
-        });
-      </script>
+
       <script src="https://cdn.ckeditor.com/ckeditor5/32.0.0/classic/ckeditor.js"></script>
       <script>
         ClassicEditor

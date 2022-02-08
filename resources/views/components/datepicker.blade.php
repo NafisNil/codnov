@@ -5,7 +5,7 @@
 <script type="text/javascript">
     $(function () {
         $('#{{$id}}').datetimepicker({
-            format:'LT'
+            format:'L'
         });
     });
 </script>
