@@ -39,12 +39,17 @@
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="client">Client:</label>
-                                            <select class="form-control" wire:model.defer="state.client_id">
+                                            <select class="form-control @error('client_id') is-invalid @enderror" wire:model.defer="state.client_id">
                                                 @foreach ($clients as $item)
                                                 <option value="{{$item->id}}">{{$item->name}}</option>
                                                 @endforeach
                                                 
                                             </select>
+                                            @error('client_id')
+                                                <div class="invalid-feedback">
+                                                    {{$message}}
+                                                </div>
+                                            @enderror
                                         </div>
                                     </div>
                                 </div>
@@ -56,9 +61,13 @@
                                         <div class="input-group-prepend">
                                           <span class="input-group-text"><i class="fas fa-calendar"></i></span>
                                         </div>
-                                        <x-datepicker wire:model="state.date" id="appointmentDate"></x-datepicker>
+                                        <x-datepicker wire:model="state.date" id="appointmentDate" />
                                       </div>
-                                   
+                                      @error('date')
+                                      <div class="invalid-feedback">
+                                          {{$message}}
+                                      </div>
+                                     @enderror
                                     <div class="input-group mb-3">
                                        
                                         <label>Appointment Time:</label>
@@ -67,16 +76,25 @@
                                         </div>
                                         <x-timepicker wire:model="state.time" id="appointmentTime"></x-timepicker>
                                       </div>
-
+                                      @error('time')
+                                      <div class="invalid-feedback">
+                                          {{$message}}
+                                      </div>
+                                     @enderror
                                       <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="client">Status:</label>
-                                            <select class="form-control" wire:model.defer="state.status">
-                                               
+                                            <select class="form-control @error('status') is-invalid @enderror" wire:model.defer="state.status"  >
+                                                <option >Select</option>
                                                 <option value="SCHEDULED">SCHEDULED</option>
                                                 <option value="CLOSED">CLOSED</option>
                                             </select>
                                         </div>
+                                        @error('status')
+                                        <div class="invalid-feedback">
+                                            {{$message}}
+                                        </div>
+                                       @enderror
                                     </div>
                                 </div>
 
