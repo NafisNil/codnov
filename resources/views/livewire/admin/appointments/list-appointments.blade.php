@@ -51,11 +51,20 @@
                           </tr>
                         </thead>
                         <tbody>
-                         
+                         @foreach ($appointment as $item)
+                       
                           <tr>
-                            <th scope="row"></th>
-                            <td></td>
-                            <td></td>
+                            <th scope="row">{{$loop->iteration}}</th>
+                            <td>{{$item->client->name}}</td>
+                            <td>{{date_format($item->date, 'Y-m-d')}}</td>
+                            <td>{{$item->time}}</td>
+                            <td>
+                              @if ($item->status == 'SCHEDULED')
+                                  <span class="badge badge-success">SCHEDULED</span>
+                              @else
+                                  <span class="badge badge-danger">CLOSED</span>
+                              @endif
+                            </td>
                             <td>
                                 <a href="" class="text-info" wire:click.prevent = "">
                                     <i class="fa fa-edit"></i>
@@ -66,7 +75,8 @@
                             </td>
                           </tr>
                          
-                          
+                                
+                         @endforeach
 
                         </tbody>
                       </table>
