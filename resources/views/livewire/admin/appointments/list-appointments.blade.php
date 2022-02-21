@@ -66,7 +66,7 @@
                               @endif
                             </td>
                             <td>
-                                <a href="" class="text-info" wire:click.prevent = "">
+                                <a href="{{route('admin.appointments.edit', $item)}}" class="text-info" >
                                     <i class="fa fa-edit"></i>
                                 </a>
                                 <a href="" class="text-danger" wire:click.prevent = "">

@@ -86,6 +86,11 @@ scratch. This page gets rid of all links and provides the needed markup only.
       $('#confirmationModal').modal('hide');
       toastr.success(event.detail.message, 'Success!')
   })
+
+  window.addEventListener('alert', event => {
+    
+      toastr.success(event.detail.message, 'Success!')
+  })
   </script>
   <script>
     toastr.options = {

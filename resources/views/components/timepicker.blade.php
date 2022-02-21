@@ -3,10 +3,10 @@
 
 @push('js')
 <script type="text/javascript">
-    $(function () {
+
         $('#{{$id}}').datetimepicker({
             format:'LT'
         });
-    });
+
 </script>
 @endpush
