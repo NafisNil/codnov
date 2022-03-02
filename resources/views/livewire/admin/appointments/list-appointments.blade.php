@@ -69,7 +69,9 @@
                                 <a href="{{route('admin.appointments.edit', $item)}}" class="text-info" >
                                     <i class="fa fa-edit"></i>
                                 </a>
-                                <a href="" class="text-danger" wire:click.prevent = "">
+                                <a href="" class="text-danger" wire:click.prevent = "confirmAppointmentRemoval({{
+                                  $item->id
+                                }})">
                                     <i class="fa fa-trash"></i>
                                 </a>
                             </td>

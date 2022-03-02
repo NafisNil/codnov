@@ -7,7 +7,11 @@ use Livewire\WithPagination;
 use App\Models\Appointment;
 class ListAppointments extends AdminComponent
 {
-    
+    public function confirmAppointmentRemoval($appointment)
+    {
+        # code...
+        dd($appointment);
+    }
     public function render()
     {
         $appointment = Appointment::with('client')->latest()->get();

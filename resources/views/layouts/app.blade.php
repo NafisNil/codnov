@@ -118,7 +118,10 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
 
   </script>
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script>
 
+</script>
 @stack('js')
 </body>
 </html>
