@@ -7,11 +7,22 @@ use Livewire\WithPagination;
 use App\Models\Appointment;
 class ListAppointments extends AdminComponent
 {
+    protected $listeners = ['deleteConfirmed' => 'deleteAppointment'];
+    public $appointmentIdBeingRemoved = null;
     public function confirmAppointmentRemoval($appointment)
     {
         # code...
-        dd($appointment);
+        $this->appointmentIdBeingRemoved = $appointment;
+        $this->dispatchBrowserEvent('show-delete-confirmation');
     }
+
+    public function deleteAppointment()
+    {
+        # code...
+        $appointment = Appointment::findorFail($this->appointmentIdBeingRemoved);
+        $appointment->delete();
+    }
+
     public function render()
     {
         $appointment = Appointment::with('client')->latest()->get();
