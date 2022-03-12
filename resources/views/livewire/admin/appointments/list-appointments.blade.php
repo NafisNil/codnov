@@ -35,6 +35,7 @@
                     <button class="btn btn-outline-success btn-sm mb-2"><i class="fa fa-plus-square"></i>       
                       Add New Appointment
                   </button>
+                 
                 </a>
                 </div>
               <div class="card">

@@ -21,6 +21,7 @@ class ListAppointments extends AdminComponent
         # code...
         $appointment = Appointment::findorFail($this->appointmentIdBeingRemoved);
         $appointment->delete();
+        $this->dispatchBrowserEvent('deleted', ['message' => 'Message deleted successfully!']);
     }
 
     public function render()

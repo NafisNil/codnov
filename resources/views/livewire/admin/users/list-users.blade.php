@@ -30,10 +30,13 @@
           @endif
           <div class="row">
             <div class="col-lg-12">
-                <div class="d-flex justify-content-end">
+                <div class="d-flex justify-content-between">
                     <button wire:click.prevent="addNew" class="btn btn-outline-success btn-sm mb-2"><i class="fa fa-plus-square"></i>       
                       Add New User
                   </button>
+                  <div>
+                    <input type="text" class="form-control" placeholder="Search.." wire:model = "searchTerm">
+                  </div>
                 </div>
               <div class="card">
                 <div class="card-body">
@@ -47,7 +50,7 @@
                           </tr>
                         </thead>
                         <tbody>
-                          @foreach ($users as $item)
+                          @forelse ($users as $item)
                           <tr>
                             <th scope="row">{{$loop->iteration}}</th>
                             <td>{{$item->name}}</td>
@@ -61,7 +64,11 @@
                                 </a>
                             </td>
                           </tr>
-                          @endforeach
+                          @empty
+                         <tr>
+                           <td colspan="5" class="text-center">No rows found!</td>
+                         </tr>
+                          @endforelse
                           
 
                         </tbody>

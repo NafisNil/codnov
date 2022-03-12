@@ -13,6 +13,7 @@ class ListUsers extends Component
     public $state = [];
     public $user; 
     public $showEditModel = false;
+    public $searchTerm  = null;
     public $userIdBeignRemove;
     public function addNew()
     {
@@ -23,7 +24,10 @@ class ListUsers extends Component
     }
     public function render()
     {
-        $users = User::latest()->paginate(5);
+        //dd($this->searchTerm);
+        $users = User::query()->where('name', 'like','%'.$this->searchTerm.'%')
+        ->orWhere('email', 'like','%'.$this->searchTerm.'%')
+        ->latest()->paginate(5);
         return view('livewire.admin.users.list-users',[
             'users' => $users
         ]);
